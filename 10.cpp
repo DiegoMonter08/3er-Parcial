@@ -23,20 +23,26 @@ using namespace std;
 // se leyó otra variable con >>.
 
 int main() {
+	float cont;
 	int i;
-	int n;
-	SIN_TIPO nombre;
-	SIN_TIPO personas[ARREGLO_MAX];
-	cout << "Digite el numero de posiciones" << endl;
-	cin >> n;
-	for (i=0;i<=n-1;i++) {
-		cout << "digite un nombre para la posicion " << i << endl;
-		cin >> nombre;
-		personas[i-1] = nombre;
+	float num[ARREGLO_MAX];
+	SIN_TIPO numero;
+	int p;
+	cont = 0;
+	cout << "digite el numero de posiciones" << endl;
+	cin >> p;
+	for (i=1;i<=p;i++) {
+		cout << "Digite numero " << i << endl;
+		cin >> numero;
+		num[i-1] = numero;
 	}
-	for (i=0;i<=n-1;i++) {
-		cout << "El dato en la psicion " << i << " es: " << personas[0] << endl;
+	for (i=1;i<=p;i++) {
+		cout << "Los numeros ingresados son: " << num[i-1] << endl;
+		if ((num[i-1]>0)) {
+			cont = cont+1;
+		}
 	}
+	cout << "Hay " << cont << " numeros positivos" << endl;
 	return 0;
 }
 

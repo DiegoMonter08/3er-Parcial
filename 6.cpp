@@ -1,94 +1,46 @@
-#include <iostream>
-#include <cmath>
+// Este codigo ha sido generado por el modulo psexport 20180802-w32 de PSeInt.
+// Es posible que el codigo generado no sea completamente correcto. Si encuentra
+// errores por favor reportelos en el foro (http://pseint.sourceforge.net).
+
+#include<iostream>
 using namespace std;
-double sumar(double a, double b) {
-    return a + b;
-}
-double restar(double a, double b) {
-    return a - b;
-}
-double multiplicar(double a, double b) {
-    return a * b;
-}
-double dividir(double a, double b) {
-    if (b != 0) {
-        return a / b;
-    } else {
-        cout << "Error: Division por cero no permitida." << endl;
-        return 0;
-    }
-}
-double raizCuadrada(double a) {
-    if (a >= 0) {
-        return sqrt(a);
-    } else {
-        cout << "Error: No se puede calcular la raiz cuadrada de un numero negativo." << endl;
-        return 0;
-    }
-}
-double potencia(double base, double exponente) {
-    return pow(base, exponente);
-}
+
+// En C++ no se puede dimensionar un arreglo estático con una dimensión no constante.
+// PSeInt sobredimensionará el arreglo utilizando un valor simbólico ARREGLO_MAX.
+// Sería posible crear un arreglo dinámicamente con los operadores new y delete, pero
+// este mecanismo aún no está soportado en las traducciones automáticas de PSeInt.
+#define ARREGLO_MAX 100
+
+// Para las variables que no se pudo determinar el tipo se utiliza la constante
+// SIN_TIPO. El usuario debe reemplazar sus ocurrencias por el tipo adecuado
+// (usualmente int,float,string o bool).
+#define SIN_TIPO string
+
+// Para leer variables de texto se utiliza el operador << del objeto cin, que
+// lee solo una palabra. Para leer una linea completa (es decir, incluyendo los
+// espacios en blanco) se debe utilzar getline (ej, reemplazar cin>>x por
+// getline(cin,x)), pero obliga a agregar un cin.ignore() si antes del getline
+// se leyó otra variable con >>.
 
 int main() {
-    double num1, num2;
-    int opcion;
-    bool continuar = true;
-
-    while (continuar) {
-        cout << "Calculadora" << endl;
-        cout << "1. Sumar" << endl;
-        cout << "2. Restar" << endl;
-        cout << "3. Multiplicar" << endl;
-        cout << "4. Dividir" << endl;
-        cout << "5. Raiz cuadrada" << endl;
-        cout << "6. Potencia" << endl;
-        cout << "7. Salir" << endl;
-        cout << "Seleccione una opcion: ";
-        cin >> opcion;
-
-        if (opcion >= 1 && opcion <= 4 || opcion == 6) {
-            cout << "Ingrese el primer numero: ";
-            cin >> num1;
-            if (opcion != 5) {
-                cout << "Ingrese el segundo numero: ";
-                cin >> num2;
-            }
-        } else if (opcion == 5) {
-            cout << "Ingrese el numero: ";
-            cin >> num1;
-        }
-        switch (opcion) {
-            case 1:
-                cout << "Resultado: " << sumar(num1, num2) << endl;
-                break;
-            case 2:
-                cout << "Resultado: " << restar(num1, num2) << endl;
-                break;
-            case 3:
-                cout << "Resultado: " << multiplicar(num1, num2) << endl;
-                break;
-            case 4:
-                cout << "Resultado: " << dividir(num1, num2) << endl;
-                break;
-            case 5:
-                cout << "Resultado: " << raizCuadrada(num1) << endl;
-                break;
-            case 6:
-                cout << "Resultado: " << potencia(num1, num2) << endl;
-                break;
-            case 7:
-                continuar = false;
-                break;
-            default:
-                cout << "Opcion no valida. Por favor, intente de nuevo." << endl;
-        }
-
-        cout << endl;
-    }
-
-    cout << "Gracias por usar la calculadora." << endl;
-
-    return 0;
+	float acum;
+	int i;
+	SIN_TIPO num;
+	int t;
+	float vector[ARREGLO_MAX];
+	acum = 0;
+	cout << "Digite el tamano del vector (arreglo)" << endl;
+	cin >> t;
+	for (i=1;i<=t;i++) {
+		cout << "Digite un numero " << endl;
+		cin >> num;
+		vector[i-1] = num;
+		acum = acum+vector[i-1];
+	}
+	for (i=1;i<=t;i++) {
+		cout << "La suma de: " << vector[i-1] << endl;
+	}
+	cout << "Es: " << acum << endl;
+	return 0;
 }
 

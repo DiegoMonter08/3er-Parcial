@@ -26,17 +26,18 @@ int main() {
 	int i;
 	int n;
 	SIN_TIPO nombre;
-	SIN_TIPO personas[ARREGLO_MAX];
-	cout << "Digite el numero de posiciones" << endl;
+	SIN_TIPO paises[ARREGLO_MAX];
+	int pos;
+	cout << "Digite el numero de paises" << endl;
 	cin >> n;
-	for (i=0;i<=n-1;i++) {
-		cout << "digite un nombre para la posicion " << i << endl;
+	for (i=1;i<=n;i++) {
+		cout << "Digite pais " << i << endl;
 		cin >> nombre;
-		personas[i-1] = nombre;
+		paises[i-1] = nombre;
 	}
-	for (i=0;i<=n-1;i++) {
-		cout << "El dato en la psicion " << i << " es: " << personas[0] << endl;
-	}
+	cout << "Digite la posicion" << endl;
+	cin >> pos;
+	cout << "El pais que hay en la posicion " << pos << " es: " << paises[pos-1] << endl;
 	return 0;
 }
 

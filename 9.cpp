@@ -3,6 +3,7 @@
 // errores por favor reportelos en el foro (http://pseint.sourceforge.net).
 
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 
 // Para leer variables de texto se utiliza el operador << del objeto cin, que
@@ -12,21 +13,13 @@ using namespace std;
 // se leyó otra variable con >>.
 
 int main() {
-	string arreglo1[2];
-	float arreglo2[3];
 	int i;
-	arreglo1[0] = "Fernando";
-	arreglo1[1] = "Oscar";
-	arreglo2[0] = 74;
-	arreglo2[1] = 56;
-	arreglo2[2] = 10;
-	cout << "arreglo 1" << endl;
-	for (i=1;i<=2;i++) {
-		cout << "El dato en la posicion " << 1 << " es: " << arreglo1[i-1] << endl;
+	float num[10];
+	for (i=1;i<=10;i++) {
+		num[i-1] = (rand()%100)+1;
 	}
-	cout << "arreglo 2" << endl;
-	for (i=1;i<=3;i++) {
-		cout << "El dato en la posicion " << i << " es: " << arreglo2[i-1] << endl;
+	for (i=1;i<=10;i++) {
+		cout << "Los numero aleatorios son: " << num[i-1] << endl;
 	}
 	return 0;
 }

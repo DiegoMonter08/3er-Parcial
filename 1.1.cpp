@@ -5,12 +5,6 @@
 #include<iostream>
 using namespace std;
 
-// En C++ no se puede dimensionar un arreglo estático con una dimensión no constante.
-// PSeInt sobredimensionará el arreglo utilizando un valor simbólico ARREGLO_MAX.
-// Sería posible crear un arreglo dinámicamente con los operadores new y delete, pero
-// este mecanismo aún no está soportado en las traducciones automáticas de PSeInt.
-#define ARREGLO_MAX 100
-
 // Para las variables que no se pudo determinar el tipo se utiliza la constante
 // SIN_TIPO. El usuario debe reemplazar sus ocurrencias por el tipo adecuado
 // (usualmente int,float,string o bool).
@@ -24,18 +18,21 @@ using namespace std;
 
 int main() {
 	int i;
-	int n;
-	SIN_TIPO nombre;
-	SIN_TIPO personas[ARREGLO_MAX];
-	cout << "Digite el numero de posiciones" << endl;
-	cin >> n;
-	for (i=0;i<=n-1;i++) {
-		cout << "digite un nombre para la posicion " << i << endl;
-		cin >> nombre;
-		personas[i-1] = nombre;
+	SIN_TIPO num[5];
+	SIN_TIPO nume;
+	// creamos el arreglo le damos un nombre y un tamano de 5 posiciones
+	// a cada posicion le damos un dato con el ciclo para
+	for (i=0;i<=5-1;i++) {
+		// pido los datos
+		cout << "Digite un numero para la posicion " << i << endl;
+		// capturo los numeros ingresados en la variable numero
+		cin >> nume;
+		// al arreglo le paso todos los numeros ingresados
+		num[i-1] = nume;
 	}
-	for (i=0;i<=n-1;i++) {
-		cout << "El dato en la psicion " << i << " es: " << personas[0] << endl;
+	// imprimimos los datos asigados en el ciclo Para 
+	for (i=0;i<=5-1;i++) {
+		cout << "El dato en la posicion " << i << " es: " << num[i-1] << endl;
 	}
 	return 0;
 }

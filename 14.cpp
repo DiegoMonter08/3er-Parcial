@@ -23,20 +23,32 @@ using namespace std;
 // se leyó otra variable con >>.
 
 int main() {
+	float acum;
+	int c;
+	int f;
 	int i;
-	int n;
-	SIN_TIPO nombre;
-	SIN_TIPO personas[ARREGLO_MAX];
-	cout << "Digite el numero de posiciones" << endl;
-	cin >> n;
-	for (i=0;i<=n-1;i++) {
-		cout << "digite un nombre para la posicion " << i << endl;
-		cin >> nombre;
-		personas[i-1] = nombre;
+	int j;
+	float matriz[ARREGLO_MAX][ARREGLO_MAX];
+	SIN_TIPO numer;
+	acum = 0;
+	cout << "Digite el numero de filas" << endl;
+	cin >> f;
+	cout << "Digite el numero de columnas" << endl;
+	cin >> c;
+	for (i=1;i<=f;i++) {
+		for (i=1;i<=c;i++) {
+			cout << "Digite dato para la fila " << i << " columna " << j << endl;
+			cin >> numer;
+			matriz[i-1][j-1] = numer;
+		}
+		acum = acum+matriz[i-1][0];
 	}
-	for (i=0;i<=n-1;i++) {
-		cout << "El dato en la psicion " << i << " es: " << personas[0] << endl;
+	for (i=1;i<=f;i++) {
+		for (j=i;j<=c;j++) {
+			cout << matriz[i-1][j-1] << endl;
+		}
 	}
+	cout << "Todos los elementos de la columna 1, suman un total de: " << acum << endl;
 	return 0;
 }
 
