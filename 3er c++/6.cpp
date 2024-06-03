@@ -1,3 +1,5 @@
+//Agregarle que realice el porcentaje al programa
+
 #include <iostream>
 #include <cmath>
 using namespace std;
