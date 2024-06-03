@@ -1,3 +1,5 @@
+//agregarle al programa que realice el 16% DE IVA
+
 #include <iostream>
 using namespace std;
 int main() {
