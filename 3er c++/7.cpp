@@ -1,3 +1,5 @@
+//Agregar otra columna  y que realice la sumatoria    
+
 #include <iostream>
 using namespace std;
 
